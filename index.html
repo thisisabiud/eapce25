@@ -12,6 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
+        
         /* Ensure proper spacing and alignment */
         .swiper-slide {
             height: auto;
@@ -37,15 +38,41 @@
 
 <body class="bg-gray-50">
     <!-- Sticky Navigation -->
-    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <div class="text-2xl font-bold text-blue-900">EAPCE'25</div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-gray-600 hover:text-blue-900">Home</a>
-                    <a href="#speakers" class="text-gray-600 hover:text-blue-900">Speakers</a>
-                    <a href="#schedule" class="text-gray-600 hover:text-blue-900">Schedule</a>
-                    <a href="#presentations" class="text-gray-600 hover:text-blue-900">Presentations</a>
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-blue-900 hover:text-blue-700 transition-colors">
+                        EAPCE'25
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex md:items-center md:space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-blue-900 hover:bg-gray-50 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                    <a href="#speakers" class="text-gray-600 hover:text-blue-900 hover:bg-gray-50 px-3 py-2 rounded-md text-sm font-medium transition-colors">Speakers</a>
+                    <a href="#schedule" class="text-gray-600 hover:text-blue-900 hover:bg-gray-50 px-3 py-2 rounded-md text-sm font-medium transition-colors">Schedule</a>
+                    <a href="#presentations" class="text-gray-600 hover:text-blue-900 hover:bg-gray-50 px-3 py-2 rounded-md text-sm font-medium transition-colors">Presentations</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" onclick="toggleMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-blue-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-900 hover:bg-gray-50 transition-colors">Home</a>
+                    <a href="#speakers" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-900 hover:bg-gray-50 transition-colors">Speakers</a>
+                    <a href="#schedule" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-900 hover:bg-gray-50 transition-colors">Schedule</a>
+                    <a href="#presentations" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-900 hover:bg-gray-50 transition-colors">Presentations</a>
                 </div>
             </div>
         </div>
@@ -324,6 +351,12 @@
     </div>
 </footer>
 
+<script>
+    function toggleMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('hidden');
+    }
+</script>
 <script>
     // Update the current year dynamically
     document.getElementById('currentYear').textContent = new Date().getFullYear();
